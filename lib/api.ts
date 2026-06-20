@@ -255,10 +255,6 @@ export async function getForecasts(query?: { horizonDays?: number; zoneId?: stri
   return apiGet<ForecastRow[], { page: number; pageSize: number; total: number }>("/api/v1/forecasts", query);
 }
 
-export async function getResourcesSummary(query?: Pick<CommonQuery, "stationId" | "zoneId" | "window">) {
-  return apiGet<ResourcesSummary>("/api/v1/resources/summary", query);
-}
-
 export async function getCurrentAllocationPlan(query?: { planningWindow?: string; stationId?: string; zoneId?: string }) {
   return apiGet<AllocationPlan>("/api/v1/allocation-plans/current", query);
 }

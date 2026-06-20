@@ -2,7 +2,7 @@ import { AlertTriangle, Bus, ChartNoAxesColumnIncreasing, ParkingCircle, type Lu
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import type { ResourcesSummary, ViolationsSummary } from "@/lib/api";
+import type { ViolationsSummary } from "@/lib/api";
 
 function StatCard({
   label,
@@ -39,10 +39,8 @@ function formatNumber(value: number) {
 
 export function StatCards({
   violationsSummary,
-  resourcesSummary,
 }: {
   violationsSummary: ViolationsSummary;
-  resourcesSummary: ResourcesSummary;
 }) {
   const cityStats = [
     {
@@ -65,14 +63,7 @@ export function StatCards({
       delta: `${violationsSummary.criticalZoneCount} critical`,
       tone: "border-t-error",
       icon: AlertTriangle,
-    },
-    {
-      label: "Available Units",
-      value: formatNumber(resourcesSummary.availableUnits),
-      delta: `/ ${formatNumber(resourcesSummary.activeUnits)} Active`,
-      tone: "border-t-tertiary",
-      icon: Bus,
-    },
+    }
   ];
 
   return (
